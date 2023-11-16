@@ -1,7 +1,7 @@
 /*
-  =============================
-  HEADER
-  =============================
+=============================
+HEADER
+=============================
 */
 .header {
   display: flex;
@@ -9,10 +9,17 @@
   padding-block: 3rem;
   gap: 1rem;
   background-color: var(--color-grey-8);
+  animation: dropDown 0.7s ease-in-out;
+  &:click {
+    animation: start 0.7s ease-in-out;
+  }
+  
 }
 
 .header__title {
   color: var(--color-grey-2);
+
+
 }
 
 .header__btn {
@@ -26,6 +33,7 @@
 
 .header__btn--dark-mode {
   background-image: url("../assets/icons/sun.svg");
+  
 }
 
 /*
@@ -200,4 +208,96 @@
 .album__buy--button:hover {
   background-color: var(--color-brand-1);
   border-color: var(--color-brand-1);
+}
+
+Dark mode styles 
+.dark-mode { 
+  background-color: #222;
+  color: #fff;
+}
+.albums {
+  margin-bottom: 10rem;
+  
+  
+  }
+  
+  
+@keyframes dropDown {
+  0% {
+    transform: translateY(-100px);
+  }
+  70% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  70% {
+    transform: translateX(5px);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
+.genres__list {
+  animation: slideIn 0.7s ease-in-out;
+}
+.album__cover {
+  transition: transform 0.7s ease-in-out;
+
+  &:hover {
+    transform: scale(1.1) rotate(3deg);
+  }
+}
+.album__item {
+  transition: width 0.7s ease-in-out;
+}
+
+@keyframes slideInAlbums {
+  0% {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  50% {
+    transform: translateX(5px);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
+.albums__list {
+  animation: slideInAlbums 0.7s ease-in-out;
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  50% {
+    transform: translateX(10px);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
+.button,
+.album__item {
+  animation: slideInFromLeft 0.7s ease-in-out;
 }
